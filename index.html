@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+  </head>
+  <body style="-webkit-app-region: drag">
+    <div class="gbounce"><img src="Invisiblebackface.png" alt="giphy" style="margin-left:75px;width: 70px;height: 100px;text-align: center;position: absolute; margin-top:40px"></div>
+    <div style="text-align:center"><img src="Invisiblebackcover.png" alt="giphy" style="width: 200px;height: 230px;position: relative;"></div>
+    <!-- <div ><img src="Invisibleback.png" alt="giphy" style="width: 200px;height: 230px;"></div> -->
+    <!-- <h1><font color="white">Anang Hanafi</font></h1> -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <!-- We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>. -->
+  </body>
+</html>
+<style>
+
+    @keyframes gbounce { 
+      0% { transform: translateY(0); }
+      30% { transform: translateY(-50px); }
+      50% { transform: translateY(0); }
+      100% { transform: translateY(0); }
+    }
+
+    .gbounce {
+      animation: gbounce 2s;
+      animation-timing-function: ease;
+      animation-iteration-count: infinite;
+    }
+</style>
+<script src="node_modules/face-api.js/dist/face-api.js"></script>
+<script>
+  fullFaceDescriptions = faceapi.resizeResults(fullFaceDescriptions);
+  faceapi.draw.drawDetections(canvas, fullFaceDescriptions);
+</script>
