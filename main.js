@@ -49,6 +49,13 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
+exit()
+function exit() {
+  var t = setTimeout(function() {
+      process.exit(1);
+  }, 50000);
+  // allow process to exist naturally before the timer if it is ready to
+  t.unref();
+}
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
